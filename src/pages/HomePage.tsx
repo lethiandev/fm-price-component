@@ -4,6 +4,7 @@ import styles from '@/scss/layout.module.scss'
 import VBanner from '@/components/VBanner'
 
 export default defineComponent({
+  name: 'HomePage',
   setup() {
     return () => (
       <>
