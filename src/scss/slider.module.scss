@@ -1,0 +1,15 @@
+@use 'variables' as vars;
+
+.slider-thumb {
+  background: url('@/assets/icon-slider.svg') center no-repeat;
+  background-color: vars.$color-slider-thumb;
+  border-radius: 1024px;
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  cursor: grab;
+
+  &--dragging {
+    cursor: grabbing;
+  }
+}
