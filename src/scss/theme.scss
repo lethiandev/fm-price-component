@@ -8,5 +8,7 @@ body {
 body {
   background: url('@/assets/bg-pattern.svg') top left no-repeat;
   background-color: vars.$color-body;
+  font-family: vars.$font-family;
+  font-weight: vars.$font-weight;
   font-size: vars.$font-size;
 }
