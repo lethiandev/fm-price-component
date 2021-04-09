@@ -1,0 +1,26 @@
+@use 'variables' as vars;
+
+.banner {
+  margin: 67px 24px 54px 24px;
+  background: url('@/assets/pattern-circles.svg') center no-repeat;
+
+  display: flex;
+  min-height: 145px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner h1 {
+  margin: 2px 0 10px 0;
+  font-weight: 800;
+  font-size: vars.$size-2;
+  color: vars.$color-heading;
+}
+
+.banner p {
+  margin: 0;
+  line-height: 1.7;
+  text-align: center;
+}
