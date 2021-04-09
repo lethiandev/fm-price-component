@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import VCard from '@/components/VCard'
 import styles from '@/scss/layout.module.scss'
 import VBanner from '@/components/VBanner'
+import VSlider from '@/components/VSlider'
 
 export default defineComponent({
   name: 'HomePage',
@@ -13,7 +14,10 @@ export default defineComponent({
           <p>Sign-up for our 30-day trial. No credit card required.</p>
         </VBanner>
         <main class={styles.containerMain}>
-          <VCard>Hello, world!</VCard>
+          <VCard>
+            <p>Hello, world!</p>
+            <VSlider />
+          </VCard>
         </main>
       </>
     )

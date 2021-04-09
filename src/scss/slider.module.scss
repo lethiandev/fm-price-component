@@ -1,5 +1,21 @@
 @use 'variables' as vars;
 
+.slider {
+  margin: 16px 0;
+  background-color: vars.$color-slider;
+  border-radius: 1024px;
+  height: 8px;
+
+  position: relative;
+}
+
+.slider-value {
+  background-color: vars.$color-slider-value;
+  border-radius: 1024px;
+  height: inherit;
+  width: 50%;
+}
+
 .slider-thumb {
   background: url('@/assets/icon-slider.svg') center no-repeat;
   background-color: vars.$color-slider-thumb;
@@ -11,5 +27,12 @@
 
   &--dragging {
     cursor: grabbing;
+  }
+
+  .slider & {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
 }
