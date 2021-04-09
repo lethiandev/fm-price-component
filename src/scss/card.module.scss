@@ -1,7 +1,7 @@
 @use 'variables' as vars;
 
 .card {
-  padding: 24px;
+  padding: 48px;
   background-color: vars.$color-card;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.02);
   border-radius: 6px;
