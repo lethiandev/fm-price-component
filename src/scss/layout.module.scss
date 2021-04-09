@@ -1,0 +1,9 @@
+.container {
+  padding: 48px;
+}
+
+.container-main {
+  composes: container;
+  margin: 0 auto;
+  max-width: 540px;
+}
