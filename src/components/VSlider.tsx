@@ -38,10 +38,6 @@ export default defineComponent({
   name: 'VSlider',
   emits: ['input'],
   props: {
-    name: {
-      type: String,
-      required: false,
-    },
     value: {
       type: Number,
       required: false,
@@ -105,7 +101,6 @@ export default defineComponent({
       dragging,
       valueStyle,
       thumbStyle,
-      model,
     }
   },
   render() {
@@ -116,7 +111,6 @@ export default defineComponent({
 
     return (
       <div class={styles.slider} ref="root">
-        <input type="hidden" name={this.name} value={this.model} />
         <div class={styles.sliderValue} style={this.valueStyle}></div>
         <VSliderThumb {...customListeners} style={this.thumbStyle} />
       </div>
