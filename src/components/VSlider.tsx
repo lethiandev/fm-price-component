@@ -3,7 +3,6 @@ import {
   defineComponent,
   onMounted,
   onUnmounted,
-  PropType,
   ref,
   watch,
 } from 'vue'
