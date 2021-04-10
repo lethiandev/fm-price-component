@@ -40,7 +40,7 @@ export default defineComponent({
     value: {
       type: Number,
       required: false,
-      default: 0.5,
+      default: 0.0,
     },
     minValue: {
       type: Number,
@@ -50,7 +50,7 @@ export default defineComponent({
     maxValue: {
       type: Number,
       required: false,
-      default: 100.0,
+      default: 1.0,
     },
   },
   setup(props, { emit }) {
