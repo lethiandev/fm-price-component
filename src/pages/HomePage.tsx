@@ -1,12 +1,23 @@
-import { defineComponent } from 'vue'
-import VCard from '@/components/VCard'
-import styles from '@/scss/layout.module.scss'
+import { defineComponent, ref } from 'vue'
 import VBanner from '@/components/VBanner'
-import VSlider from '@/components/VSlider'
+import VCard from '@/components/VCard'
+import VPriceSelector, { Price } from '@/components/VPriceSelector'
+import styles from '@/scss/layout.module.scss'
 
 export default defineComponent({
   name: 'HomePage',
   setup() {
+    const prices: Price[] = [
+      { id: 1, pageViews: 1e4, price: 8 },
+      { id: 2, pageViews: 5e4, price: 12 },
+      { id: 3, pageViews: 1e5, price: 16 },
+      { id: 4, pageViews: 5e5, price: 24 },
+      { id: 5, pageViews: 1e6, price: 36 },
+    ]
+
+    const startIndex = prices.length / 2
+    const index = ref(startIndex)
+
     return () => (
       <>
         <VBanner>
@@ -15,8 +26,7 @@ export default defineComponent({
         </VBanner>
         <main class={styles.containerMain}>
           <VCard>
-            <p>Hello, world!</p>
-            <VSlider />
+            <VPriceSelector prices={prices} v-model={index.value} />
           </VCard>
         </main>
       </>
