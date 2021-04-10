@@ -1,24 +1,6 @@
-import {
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-  withModifiers,
-} from 'vue'
-
+import { defineComponent, ref, withModifiers } from 'vue'
+import bindWindowEvents from '@/utils/bindWindowEvents'
 import styles from '@/scss/slider.module.scss'
-
-function bindWindowUpEvents(callback: () => void) {
-  onMounted(() => {
-    window.addEventListener('mouseup', callback, false)
-    window.addEventListener('touchend', callback, false)
-  })
-
-  onUnmounted(() => {
-    window.removeEventListener('mouseup', callback, false)
-    window.removeEventListener('touchend', callback, false)
-  })
-}
 
 export default defineComponent({
   name: 'VSliderThumb',
@@ -41,9 +23,8 @@ export default defineComponent({
     }
 
     // Bind drop event on window
-    if (window) {
-      bindWindowUpEvents(drop)
-    }
+    // Allows dropping thumb outside the element
+    bindWindowEvents(['mouseup', 'touchend'], drop)
 
     return {
       dragging,

@@ -1,26 +1,7 @@
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-  watch,
-} from 'vue'
-
+import { computed, defineComponent, ref, watch } from 'vue'
+import bindWindowEvents from '@/utils/bindWindowEvents'
 import VSliderThumb from './VSliderThumb'
 import styles from '@/scss/slider.module.scss'
-
-function bindWindowEvents(callback: (ev: MouseEvent | TouchEvent) => void) {
-  onMounted(function () {
-    window.addEventListener('mousemove', callback, false)
-    window.addEventListener('touchmove', callback, false)
-  })
-
-  onUnmounted(function () {
-    window.removeEventListener('mousemove', callback, false)
-    window.removeEventListener('touchmove', callback, false)
-  })
-}
 
 function getOffsetFrom(ev: MouseEvent | TouchEvent): { x: number; y: number } {
   if (ev instanceof MouseEvent) {
@@ -101,7 +82,7 @@ export default defineComponent({
 
     // Bind update event to the window
     // Allows thumb dragging outside the element
-    bindWindowEvents(handleDrag)
+    bindWindowEvents(['mousemove', 'touchmove'], handleDrag)
 
     return {
       root,
