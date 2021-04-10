@@ -1,0 +1,30 @@
+@use 'variables' as vars;
+
+.price-selector {
+  display: grid;
+  grid-template: auto auto / auto 1fr;
+  grid-template-areas: 'a b' 'c c';
+  align-items: center;
+}
+
+.price-selector-pageviews {
+  text-transform: uppercase;
+  font-weight: 600;
+  grid-area: a;
+}
+
+.price-selector-rate {
+  grid-area: b;
+  justify-self: end;
+
+  span {
+    vertical-align: middle;
+    color: vars.$color-heading;
+    font-weight: 800;
+    font-size: 3em;
+  }
+}
+
+.price-selector-slider {
+  grid-area: c;
+}
