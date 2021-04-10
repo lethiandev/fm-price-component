@@ -35,9 +35,9 @@ function getOffsetFrom(ev: MouseEvent | TouchEvent): { x: number; y: number } {
 
 export default defineComponent({
   name: 'VSlider',
-  emits: ['input'],
+  emits: ['update:modelValue'],
   props: {
-    value: {
+    modelValue: {
       type: Number,
       required: false,
       default: 0.0,
@@ -56,7 +56,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const root = ref<HTMLElement>()
     const dragging = ref(false)
-    const model = ref(props.value)
+    const model = ref(props.modelValue)
 
     const valuePercentage = computed(() => {
       const factor = (model.value - props.minValue) / props.maxValue
@@ -71,7 +71,17 @@ export default defineComponent({
       left: valuePercentage.value,
     }))
 
-    const update = (ev: MouseEvent | TouchEvent) => {
+    const update = (value: number) => {
+      const clamped = Math.max(props.minValue, Math.min(props.maxValue, value))
+
+      // Emit update only on value change
+      if (model.value !== clamped) {
+        model.value = clamped
+        emit('update:modelValue', model.value)
+      }
+    }
+
+    const handleDrag = (ev: MouseEvent | TouchEvent) => {
       if (dragging.value && root.value) {
         const bounds = root.value.getBoundingClientRect()
         const offset = getOffsetFrom(ev)
@@ -80,20 +90,18 @@ export default defineComponent({
         const factor = (offset.x - bounds.x) / bounds.width
         const clamped = Math.max(0.0, Math.min(1.0, factor))
 
-        model.value = width * clamped + props.minValue
-        emit('input', model.value)
+        const value = width * clamped + props.minValue
+        update(value)
       }
     }
 
     // Watch for prop changes to update internal value
-    watch(
-      () => props.value,
-      value => (model.value = value)
-    )
+    // Processes the update flow to clamp input model values
+    watch(props, ({ modelValue }) => update(modelValue), { immediate: true })
 
     // Bind update event to the window
     // Allows thumb dragging outside the element
-    bindWindowEvents(update)
+    bindWindowEvents(handleDrag)
 
     return {
       root,
