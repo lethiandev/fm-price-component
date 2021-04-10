@@ -57,18 +57,11 @@ export default defineComponent({
       required: false,
       default: 100.0,
     },
-    transform: {
-      type: Function as PropType<(value: number) => number>,
-      required: false,
-      default: (value: number) => value,
-    },
   },
   setup(props, { emit }) {
     const root = ref<HTMLElement>()
     const dragging = ref(false)
     const model = ref(props.value)
-
-    const transform = (value: number) => props.transform(value)
 
     const valuePercentage = computed(() => {
       const factor = (model.value - props.minValue) / props.maxValue
@@ -92,7 +85,7 @@ export default defineComponent({
         const factor = (offset.x - bounds.x) / bounds.width
         const clamped = Math.max(0.0, Math.min(1.0, factor))
 
-        model.value = transform(width * clamped + props.minValue)
+        model.value = width * clamped + props.minValue
         emit('input', model.value)
       }
     }
