@@ -32,4 +32,19 @@ describe('VSlider.tsx', () => {
     const seq = [[80], [20], [80]]
     expect(wrapper.emitted('update:modelValue')).toEqual(seq)
   })
+
+  it('should emit update on min and max value changes', async () => {
+    const wrapper = shallowMount(VSlider, {
+      props: { modelValue: 10, minValue: 0, maxValue: 100 },
+    })
+
+    await wrapper.setProps({ minValue: 10 })
+    await wrapper.setProps({ minValue: 20 })
+    await wrapper.setProps({ minValue: 50 })
+    await wrapper.setProps({ modelValue: 100 })
+    await wrapper.setProps({ maxValue: 80 })
+
+    const seq = [[20], [50], [100], [80]]
+    expect(wrapper.emitted('update:modelValue')).toEqual(seq)
+  })
 })
