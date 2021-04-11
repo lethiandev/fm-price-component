@@ -4,6 +4,8 @@ import formatCurrency from '@/utils/formatCurrency'
 import VSlider from './VSlider'
 import VSwitch from './VSwitch'
 import styles from '@/scss/price-selector.module.scss'
+import VPriceSelectorPageviews from './VPriceSelectorPageviews'
+import VPriceSelectorRate from './VPriceSelectorRate'
 
 export interface Price {
   id: number
@@ -81,12 +83,11 @@ export default defineComponent({
 
     return (
       <div class={styles.priceSelector}>
-        <div class={styles.priceSelectorPageviews}>
-          {formatNumber(this.selected.pageViews, 2)} Pageviews
-        </div>
-        <div class={styles.priceSelectorRate}>
-          <span>{formatCurrency(this.totalPrice)}</span> / month
-        </div>
+        <VPriceSelectorPageviews pageViews={this.selected.pageViews} />
+        <VPriceSelectorRate
+          price={this.selected.price}
+          discount={this.discount ? 0.25 : 0.0}
+        />
         <div class={styles.priceSelectorSlider}>
           <VSlider maxValue={prices.length} v-model={this.slider} />
         </div>

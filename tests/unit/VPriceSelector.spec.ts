@@ -43,36 +43,4 @@ describe('VPriceSelector.tsx', () => {
     const seq = [[1], [0], [2]]
     expect(wrapper.emitted('update:modelValue')).toEqual(seq)
   })
-
-  it('should render pageviews in short format', async () => {
-    const wrapper = factorVPriceSelector()
-    const pageviews = wrapper.find('.priceSelectorPageviews')
-
-    expect(pageviews.exists()).toBeTruthy()
-
-    await wrapper.setProps({ modelValue: 0 })
-    expect(pageviews.text()).toEqual('10K Pageviews')
-
-    await wrapper.setProps({ modelValue: 1 })
-    expect(pageviews.text()).toEqual('100K Pageviews')
-
-    await wrapper.setProps({ modelValue: 2 })
-    expect(pageviews.text()).toEqual('25M Pageviews')
-  })
-
-  it('should render price in USD currency', async () => {
-    const wrapper = factorVPriceSelector()
-    const rate = wrapper.find('.priceSelectorRate')
-
-    expect(rate.exists()).toBeTruthy()
-
-    await wrapper.setProps({ modelValue: 0 })
-    expect(rate.text()).toEqual('$100.00 / month')
-
-    await wrapper.setProps({ modelValue: 1 })
-    expect(rate.text()).toEqual('$250.50 / month')
-
-    await wrapper.setProps({ modelValue: 2 })
-    expect(rate.text()).toEqual('$999.99 / month')
-  })
 })
