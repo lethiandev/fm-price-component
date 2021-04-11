@@ -1,11 +1,9 @@
 import { computed, defineComponent, PropType, ref, watch } from 'vue'
-import formatNumber from '@/utils/formatNumber'
-import formatCurrency from '@/utils/formatCurrency'
+import PriceSelectorPageviews from './PriceSelectorPageviews'
+import PriceSelectorRate from './PriceSelectorRate'
 import VSlider from './VSlider'
 import VSwitch from './VSwitch'
 import styles from '@/scss/price-selector.module.scss'
-import PriceSelectorPageviews from './PriceSelectorPageviews'
-import PriceSelectorRate from './PriceSelectorRate'
 
 export interface Price {
   id: number
