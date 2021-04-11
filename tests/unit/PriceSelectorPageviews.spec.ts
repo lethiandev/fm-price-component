@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import VPriceSelectorPageviews from '@/components/VPriceSelectorPageviews'
+import PriceSelectorPageviews from '@/components/PriceSelectorPageviews'
 
-describe('VPriceSelectorPageviews.tsx', () => {
+describe('PriceSelectorPageviews.tsx', () => {
   it('should render pageviews in short format', async () => {
-    const wrapper = shallowMount(VPriceSelectorPageviews, {
+    const wrapper = shallowMount(PriceSelectorPageviews, {
       props: { pageViews: 0 },
     })
 

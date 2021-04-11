@@ -1,7 +1,7 @@
 import { defineComponent, ref } from 'vue'
 import VBanner from '@/components/VBanner'
 import VCard from '@/components/VCard'
-import VPriceSelector, { Price } from '@/components/VPriceSelector'
+import PriceSelector, { Price } from '@/components/PriceSelector'
 import styles from '@/scss/layout.module.scss'
 
 export default defineComponent({
@@ -26,7 +26,7 @@ export default defineComponent({
         </VBanner>
         <main class={styles.containerMain}>
           <VCard>
-            <VPriceSelector prices={prices} v-model={index.value} />
+            <PriceSelector prices={prices} v-model={index.value} />
           </VCard>
         </main>
       </>

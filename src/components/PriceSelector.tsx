@@ -4,8 +4,8 @@ import formatCurrency from '@/utils/formatCurrency'
 import VSlider from './VSlider'
 import VSwitch from './VSwitch'
 import styles from '@/scss/price-selector.module.scss'
-import VPriceSelectorPageviews from './VPriceSelectorPageviews'
-import VPriceSelectorRate from './VPriceSelectorRate'
+import PriceSelectorPageviews from './PriceSelectorPageviews'
+import PriceSelectorRate from './PriceSelectorRate'
 
 export interface Price {
   id: number
@@ -83,8 +83,8 @@ export default defineComponent({
 
     return (
       <div class={styles.priceSelector}>
-        <VPriceSelectorPageviews pageViews={this.selected.pageViews} />
-        <VPriceSelectorRate
+        <PriceSelectorPageviews pageViews={this.selected.pageViews} />
+        <PriceSelectorRate
           price={this.selected.price}
           discount={this.discount ? 0.25 : 0.0}
         />

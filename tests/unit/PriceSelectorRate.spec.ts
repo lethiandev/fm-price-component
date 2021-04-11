@@ -1,9 +1,9 @@
-import VPriceSelectorRate from '@/components/VPriceSelectorRate'
+import PriceSelectorRate from '@/components/PriceSelectorRate'
 import { shallowMount } from '@vue/test-utils'
 
-describe('VPriceSelectorRate.tsx', () => {
+describe('PriceSelectorRate.tsx', () => {
   it('should render price in USD currency', async () => {
-    const wrapper = shallowMount(VPriceSelectorRate, {
+    const wrapper = shallowMount(PriceSelectorRate, {
       props: { price: 0 },
     })
 
@@ -24,7 +24,7 @@ describe('VPriceSelectorRate.tsx', () => {
   })
 
   it('should render price with discount', async () => {
-    const wrapper = shallowMount(VPriceSelectorRate, {
+    const wrapper = shallowMount(PriceSelectorRate, {
       props: { price: 0 },
     })
 

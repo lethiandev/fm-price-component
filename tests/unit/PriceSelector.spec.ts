@@ -1,6 +1,6 @@
 import { nextTick } from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import VPriceSelector, { Price } from '@/components/VPriceSelector'
+import PriceSelector, { Price } from '@/components/PriceSelector'
 import VSlider from '@/components/VSlider'
 
 const prices: Price[] = [
@@ -10,7 +10,7 @@ const prices: Price[] = [
 ]
 
 function factorVPriceSelector() {
-  return shallowMount(VPriceSelector, {
+  return shallowMount(PriceSelector, {
     props: { prices },
   })
 }
