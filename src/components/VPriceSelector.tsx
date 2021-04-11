@@ -2,6 +2,7 @@ import { computed, defineComponent, PropType, ref, watch } from 'vue'
 import formatNumber from '@/utils/formatNumber'
 import formatCurrency from '@/utils/formatCurrency'
 import VSlider from './VSlider'
+import VSwitch from './VSwitch'
 import styles from '@/scss/price-selector.module.scss'
 
 export interface Price {
@@ -26,8 +27,15 @@ export default defineComponent({
   setup(props, { emit }) {
     const index = ref(props.modelValue)
     const slider = ref(props.modelValue + 0.5)
+    const discount = ref(false)
 
     const selected = computed(() => props.prices[index.value])
+
+    const totalPrice = computed(() => {
+      const price = selected.value.price
+      const applyDiscount = discount.value
+      return applyDiscount ? price * 0.75 : price
+    })
 
     const clampIndex = (value: number) => {
       const len = props.prices.length
@@ -64,6 +72,8 @@ export default defineComponent({
     return {
       slider,
       selected,
+      discount,
+      totalPrice,
     }
   },
   render() {
@@ -75,10 +85,14 @@ export default defineComponent({
           {formatNumber(this.selected.pageViews, 2)} Pageviews
         </div>
         <div class={styles.priceSelectorRate}>
-          <span>{formatCurrency(this.selected.price)}</span> / month
+          <span>{formatCurrency(this.totalPrice)}</span> / month
         </div>
         <div class={styles.priceSelectorSlider}>
           <VSlider maxValue={prices.length} v-model={this.slider} />
+        </div>
+        <div class={styles.priceSelectorBilling}>
+          Monthly Billing <VSwitch v-model={this.discount} /> Yearly Billing
+          <span>25% discount</span>
         </div>
       </div>
     )

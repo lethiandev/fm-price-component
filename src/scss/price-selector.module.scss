@@ -2,18 +2,20 @@
 
 .price-selector {
   display: grid;
-  grid-template: auto auto / auto 1fr;
-  grid-template-areas: 'a b' 'c c';
+  grid-template: auto auto auto / auto 1fr;
+  grid-template-areas: 'a b' 'c c' 'd d';
   align-items: center;
 }
 
 .price-selector-pageviews {
+  margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: 600;
   grid-area: a;
 }
 
 .price-selector-rate {
+  margin-bottom: 20px;
   grid-area: b;
   justify-self: end;
 
@@ -26,5 +28,25 @@
 }
 
 .price-selector-slider {
+  margin-bottom: 20px;
   grid-area: c;
+}
+
+.price-selector-billing {
+  grid-area: d;
+  justify-self: end;
+
+  span {
+    padding: 0 8px;
+    background: vars.$color-discount;
+    border-radius: 1024px;
+    vertical-align: middle;
+    font-weight: 800;
+    font-size: 0.8em;
+    color: vars.$color-discount-text;
+  }
+
+  button {
+    margin: 0 12px;
+  }
 }
