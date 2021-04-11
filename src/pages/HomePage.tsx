@@ -15,7 +15,7 @@ export default defineComponent({
       { id: 5, pageViews: 1e6, price: 36 },
     ]
 
-    const startIndex = prices.length / 2
+    const startIndex = Math.floor(prices.length / 2)
     const index = ref(startIndex)
 
     return () => (
