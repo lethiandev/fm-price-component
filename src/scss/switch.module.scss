@@ -1,0 +1,37 @@
+@use 'variables' as vars;
+
+.switch {
+  padding: 4px 4px;
+  background: vars.$color-switch;
+  border-radius: 1024px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 44px;
+
+  transition: background-color 70ms ease-in-out;
+
+  &::after {
+    content: '';
+    margin-left: 0%;
+    background-color: vars.$color-switch-thumb;
+    border-radius: 1024px;
+    display: block;
+    width: 14px;
+    height: 14px;
+
+    transition: margin-left 70ms ease-in-out;
+  }
+
+  &--checked {
+    background-color: vars.$color-switch-checked;
+
+    &::after {
+      margin-left: calc(100% - 14px);
+    }
+  }
+}
