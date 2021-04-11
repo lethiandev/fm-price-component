@@ -69,28 +69,18 @@ export default defineComponent({
     // Updates slider and clamps model value to valid index
     watch(props, ({ modelValue }) => select(modelValue), { immediate: true })
 
-    return {
-      slider,
-      selected,
-      discount,
-      totalPrice,
-    }
-  },
-  render() {
-    const prices = this.$props.prices
-
-    return (
+    return () => (
       <div class={styles.priceSelector}>
-        <PriceSelectorPageviews pageViews={this.selected.pageViews} />
+        <PriceSelectorPageviews pageViews={selected.value.pageViews} />
         <PriceSelectorRate
-          price={this.selected.price}
-          discount={this.discount ? 0.25 : 0.0}
+          price={selected.value.price}
+          discount={discount.value ? 0.25 : 0.0}
         />
         <div class={styles.priceSelectorSlider}>
-          <VSlider maxValue={prices.length} v-model={this.slider} />
+          <VSlider maxValue={props.prices.length} v-model={slider.value} />
         </div>
         <div class={styles.priceSelectorBilling}>
-          Monthly Billing <VSwitch v-model={this.discount} /> Yearly Billing
+          Monthly Billing <VSwitch v-model={discount.value} /> Yearly Billing
           <span>25% discount</span>
         </div>
       </div>
