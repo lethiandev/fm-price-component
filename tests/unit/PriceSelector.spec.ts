@@ -1,7 +1,7 @@
 import { nextTick } from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import PriceSelector, { Price } from '@/components/PriceSelector'
-import VSlider from '@/components/VSlider'
+import PriceSelectorSlider from '@/components/PriceSelectorSlider'
 
 const prices: Price[] = [
   { id: 1, pageViews: 1e4, price: 100 },
@@ -16,20 +16,9 @@ function factorVPriceSelector() {
 }
 
 describe('VPriceSelector.tsx', () => {
-  it('should clamp selection index', async () => {
+  it('should emit changes on slider dragging', async () => {
     const wrapper = factorVPriceSelector()
-
-    await wrapper.setProps({ modelValue: 1 })
-    await wrapper.setProps({ modelValue: -1 })
-    await wrapper.setProps({ modelValue: 5 })
-
-    const seq = [[1], [0], [2]]
-    expect(wrapper.emitted('update:modelValue')).toEqual(seq)
-  })
-
-  it('should update selection on slider dragging', async () => {
-    const wrapper = factorVPriceSelector()
-    const slider = wrapper.findComponent(VSlider)
+    const slider = wrapper.findComponent(PriceSelectorSlider)
 
     expect(slider.exists()).toBeTruthy()
 
