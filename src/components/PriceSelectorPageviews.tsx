@@ -3,7 +3,7 @@ import formatNumber from '@/utils/formatNumber'
 import styles from '@/scss/price-selector.module.scss'
 
 export default defineComponent({
-  name: 'VPriceSelectorPageviews',
+  name: 'PriceSelectorPageviews',
   props: {
     pageViews: {
       type: Number,

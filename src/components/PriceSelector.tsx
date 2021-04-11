@@ -12,7 +12,7 @@ export interface Price {
 }
 
 export default defineComponent({
-  name: 'VPriceSelector',
+  name: 'PriceSelector',
   emits: ['update:modelValue'],
   props: {
     modelValue: {

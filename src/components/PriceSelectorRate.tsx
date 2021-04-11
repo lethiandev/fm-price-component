@@ -3,7 +3,7 @@ import formatCurrency from '@/utils/formatCurrency'
 import styles from '@/scss/price-selector.module.scss'
 
 export default defineComponent({
-  name: 'VPriceSelectorRate',
+  name: 'PriceSelectorRate',
   props: {
     price: {
       type: Number,
