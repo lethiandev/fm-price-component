@@ -31,12 +31,6 @@ export default defineComponent({
 
     const selected = computed(() => props.prices[index.value])
 
-    const totalPrice = computed(() => {
-      const price = selected.value.price
-      const applyDiscount = discount.value
-      return applyDiscount ? price * 0.75 : price
-    })
-
     const clampIndex = (value: number) => {
       const len = props.prices.length
       const rounded = Math.floor(value)
