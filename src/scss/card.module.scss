@@ -6,3 +6,17 @@
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.02);
   border-radius: 6px;
 }
+
+.card-footer {
+  margin: -48px;
+  margin-top: 24px;
+  padding: 48px;
+  padding-top: 24px;
+
+  border-top: 1px solid;
+  border-color: hsl(252, 20%, 95%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
