@@ -13,3 +13,25 @@ body {
   font-size: vars.$font-size;
   color: vars.$color-text;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.8em;
+  line-height: 2.25;
+
+  // Disable built-in list styling
+  // Sadly built-in bullets gives limited styling control
+  list-style: none;
+}
+
+ul li::before {
+  content: '';
+  margin-right: 16px;
+  background: url('@/assets/icon-check.svg') center top no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+}
