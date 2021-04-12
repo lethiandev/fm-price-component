@@ -2,16 +2,19 @@
 @use 'breakpoints' as bp;
 
 .tag {
-  padding: 0 8px;
+  margin-top: -1px;
+  padding: 3px 7px 3px 6px;
   background: #f0f0f0;
   border-radius: 1024px;
   vertical-align: middle;
   font-weight: 800;
-  font-size: 0.8em;
+  font-size: 0.82em;
+  display: inline-block;
 }
 
 .tag-discount {
   composes: tag;
+  margin-left: 9px;
   background: vars.$color-discount;
   color: vars.$color-discount-text;
 }

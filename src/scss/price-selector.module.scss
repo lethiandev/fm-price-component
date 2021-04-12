@@ -2,6 +2,7 @@
 @use 'breakpoints' as bp;
 
 .price-selector {
+  margin-top: 14px;
   display: grid;
   grid-template: auto / auto 1fr;
   grid-template-areas: 'a b' 'c c' 'd d';
@@ -13,20 +14,24 @@
 }
 
 .price-selector-pageviews {
-  margin-bottom: 20px;
+  margin-left: -1px;
+  margin-bottom: 24px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 1.25px;
   grid-area: a;
 }
 
 .price-selector-rate {
-  margin-bottom: 20px;
+  margin-right: 2px;
+  margin-bottom: 24px;
+  font-size: 16px;
   grid-area: b;
   display: flex;
   align-items: center;
 
   &-transition {
-    margin-right: 4px;
+    margin-right: 9px;
     flex: 1 1 auto;
     text-align: right;
     position: relative;
@@ -36,7 +41,8 @@
     vertical-align: middle;
     color: vars.$color-heading;
     font-weight: 800;
-    font-size: 3em;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
 
     // Fixes roll transition
     display: inline-block;
@@ -45,15 +51,17 @@
 }
 
 .price-selector-slider {
-  margin-bottom: 20px;
+  margin: 0 2px 20px 2px;
   grid-area: c;
 }
 
 .price-selector-billing {
+  margin: 20px 20px 16px 0;
+  font-size: 0.8em;
   grid-area: d;
   justify-self: end;
 
   button {
-    margin: 0 12px;
+    margin: 0 14px;
   }
 }
