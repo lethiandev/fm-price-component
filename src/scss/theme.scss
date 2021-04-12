@@ -1,4 +1,5 @@
 @use 'variables' as vars;
+@use 'breakpoints' as bp;
 
 html,
 body {
@@ -12,6 +13,10 @@ body {
   font-weight: vars.$font-weight;
   font-size: vars.$font-size;
   color: vars.$color-text;
+
+  @include bp.mobile {
+    background-position: left -49px;
+  }
 }
 
 ul {

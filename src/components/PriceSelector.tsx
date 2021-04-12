@@ -51,7 +51,7 @@ export default defineComponent({
         <div class={priceStyles.priceSelectorBilling}>
           Monthly Billing <VSwitch v-model={discount.value} /> Yearly Billing
           <span class={tagStyles.tagDiscount}>
-            25% <span class={tagStyles.tagExtra}>discount</span>
+            -25% <span class={tagStyles.tagExtra}>discount</span>
           </span>
         </div>
       </div>

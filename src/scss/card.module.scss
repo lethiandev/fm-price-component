@@ -1,10 +1,15 @@
 @use 'variables' as vars;
+@use 'breakpoints' as bp;
 
 .card {
   padding: 27px 46px;
   background-color: vars.$color-card;
   box-shadow: 0 16px 20px hsla(226, 80%, 70%, 0.1);
   border-radius: 6px;
+
+  @include bp.mobile {
+    padding: 27px 22px;
+  }
 }
 
 .card-footer {
@@ -18,4 +23,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include bp.mobile {
+    margin: -27px -22px;
+    margin-top: 16px;
+    padding-top: 19px;
+    text-align: center;
+
+    flex-direction: column;
+
+    > * {
+      margin-bottom: 28px;
+    }
+
+    > *:last-child {
+      margin-bottom: 5px;
+    }
+  }
 }
