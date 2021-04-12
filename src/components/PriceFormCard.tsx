@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref } from 'vue'
+import { defineComponent, PropType, ref, withModifiers } from 'vue'
 import VCard from './VCard'
 import PriceSelector, { Price } from '@/components/PriceSelector'
 
@@ -7,19 +7,29 @@ import buttonStyles from '@/scss/button.module.scss'
 
 export default defineComponent({
   name: 'PriceFormCard',
+  emits: ['submit'],
   props: {
     prices: {
       type: Array as PropType<Price[]>,
       required: true,
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const initialIndex = Math.floor(props.prices.length / 2)
     const index = ref(initialIndex)
 
+    const submit = withModifiers(
+      (ev: Event) => {
+        if (ev.target instanceof HTMLFormElement) {
+          emit('submit', new FormData(ev.target))
+        }
+      },
+      ['prevent']
+    )
+
     return () => (
       <VCard>
-        <form id="price-form" action="/" method="post">
+        <form id="price-form" action="/" method="post" onSubmit={submit}>
           <PriceSelector prices={props.prices} v-model={index.value} />
         </form>
         <footer class={cardStyles.cardFooter}>
