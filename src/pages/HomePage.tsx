@@ -19,7 +19,10 @@ export default defineComponent({
       <>
         <VBanner>
           <h1>Simple, traffic-based pricing</h1>
-          <p>Sign-up for our 30-day trial. No credit card required.</p>
+          <p>
+            <span>Sign-up for our 30-day trial.</span>{' '}
+            <span>No credit card required.</span>
+          </p>
         </VBanner>
         <main class={styles.containerMain}>
           <PriceFormCard prices={prices} />
