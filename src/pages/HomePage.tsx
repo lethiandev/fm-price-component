@@ -28,6 +28,14 @@ export default defineComponent({
           <VCard>
             <PriceSelector prices={prices} v-model={index.value} />
             <hr class={styles.separator} />
+            <footer>
+              <ul>
+                <li>Unlimited websites</li>
+                <li>100% data ownership</li>
+                <li>Email reports</li>
+              </ul>
+              <button>Start my trial</button>
+            </footer>
           </VCard>
         </main>
       </>
