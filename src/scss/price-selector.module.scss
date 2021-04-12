@@ -1,10 +1,15 @@
 @use 'variables' as vars;
+@use 'breakpoints' as bp;
 
 .price-selector {
   display: grid;
-  grid-template: auto auto auto / auto 1fr;
+  grid-template: auto auto auto auto / auto 1fr;
   grid-template-areas: 'a b' 'c c' 'd d';
   align-items: center;
+
+  @include bp.mobile {
+    grid-template-areas: 'a a' 'c c' 'b b' 'd d';
+  }
 }
 
 .price-selector-pageviews {
