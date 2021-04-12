@@ -1,0 +1,30 @@
+.roll-in-out-enter-active {
+  animation: rollin 100ms ease-in;
+}
+
+.roll-in-out-leave-active {
+  animation: rollout 100ms ease-out;
+  position: absolute;
+}
+
+@keyframes rollin {
+  from {
+    opacity: 0;
+    transform: translate(0px, -30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes rollout {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+}

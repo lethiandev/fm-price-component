@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref, TransitionGroup, watch } from 'vue'
 import formatCurrency from '@/utils/formatCurrency'
 import styles from '@/scss/price-selector.module.scss'
 
@@ -15,12 +15,21 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const trigger = ref(0)
     const discount = computed(() => 1.0 - props.discount)
     const total = computed(() => props.price * discount.value)
 
+    // Discount change triggers transition animation
+    watch(discount, () => trigger.value++)
+
     return () => (
       <div class={styles.priceSelectorRate}>
-        <span>{formatCurrency(total.value)}</span> / month
+        <div class={styles.priceSelectorRateTransition}>
+          <TransitionGroup name="roll-in-out">
+            <span key={trigger.value}>{formatCurrency(total.value)}</span>
+          </TransitionGroup>
+        </div>
+        / month
       </div>
     )
   },

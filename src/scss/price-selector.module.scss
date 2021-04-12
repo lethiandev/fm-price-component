@@ -17,13 +17,25 @@
 .price-selector-rate {
   margin-bottom: 20px;
   grid-area: b;
-  justify-self: end;
+  display: flex;
+  align-items: center;
+
+  &-transition {
+    margin-right: 4px;
+    flex: 1 1 auto;
+    text-align: right;
+    position: relative;
+  }
 
   span {
     vertical-align: middle;
     color: vars.$color-heading;
     font-weight: 800;
     font-size: 3em;
+
+    // Fixes roll transition
+    display: inline-block;
+    right: 0;
   }
 }
 
