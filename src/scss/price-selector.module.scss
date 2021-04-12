@@ -48,16 +48,6 @@
   grid-area: d;
   justify-self: end;
 
-  span {
-    padding: 0 8px;
-    background: vars.$color-discount;
-    border-radius: 1024px;
-    vertical-align: middle;
-    font-weight: 800;
-    font-size: 0.8em;
-    color: vars.$color-discount-text;
-  }
-
   button {
     margin: 0 12px;
   }

@@ -3,7 +3,9 @@ import PriceSelectorPageviews from './PriceSelectorPageviews'
 import PriceSelectorRate from './PriceSelectorRate'
 import PriceSelectorSlider from './PriceSelectorSlider'
 import VSwitch from './VSwitch'
-import styles from '@/scss/price-selector.module.scss'
+
+import priceStyles from '@/scss/price-selector.module.scss'
+import tagStyles from '@/scss/tag.module.scss'
 
 export interface Price {
   id: number
@@ -42,13 +44,15 @@ export default defineComponent({
     watch(props, ({ modelValue }) => (index.value = modelValue))
 
     return () => (
-      <div class={styles.priceSelector}>
+      <div class={priceStyles.priceSelector}>
         <PriceSelectorPageviews pageViews={pageViews.value} />
         <PriceSelectorRate price={price.value} discount={discountRate.value} />
         <PriceSelectorSlider maxIndex={maxIndex.value} v-model={index.value} />
-        <div class={styles.priceSelectorBilling}>
+        <div class={priceStyles.priceSelectorBilling}>
           Monthly Billing <VSwitch v-model={discount.value} /> Yearly Billing
-          <span>25% discount</span>
+          <span class={tagStyles.tagDiscount}>
+            25% <span class={tagStyles.tagExtra}>discount</span>
+          </span>
         </div>
       </div>
     )

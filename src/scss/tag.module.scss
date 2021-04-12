@@ -1,0 +1,23 @@
+@use 'variables' as vars;
+@use 'breakpoints' as bp;
+
+.tag {
+  padding: 0 8px;
+  background: #f0f0f0;
+  border-radius: 1024px;
+  vertical-align: middle;
+  font-weight: 800;
+  font-size: 0.8em;
+}
+
+.tag-discount {
+  composes: tag;
+  background: vars.$color-discount;
+  color: vars.$color-discount-text;
+}
+
+.tag-extra {
+  @include bp.mobile {
+    display: none;
+  }
+}
