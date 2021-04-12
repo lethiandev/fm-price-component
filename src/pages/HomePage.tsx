@@ -3,6 +3,7 @@ import VBanner from '@/components/VBanner'
 import VCard from '@/components/VCard'
 import PriceSelector, { Price } from '@/components/PriceSelector'
 import styles from '@/scss/layout.module.scss'
+import PriceFormCard from '@/components/PriceFormCard'
 
 export default defineComponent({
   name: 'HomePage',
@@ -15,9 +16,6 @@ export default defineComponent({
       { id: 5, pageViews: 1e6, price: 36 },
     ]
 
-    const startIndex = Math.floor(prices.length / 2)
-    const index = ref(startIndex)
-
     return () => (
       <>
         <VBanner>
@@ -25,18 +23,7 @@ export default defineComponent({
           <p>Sign-up for our 30-day trial. No credit card required.</p>
         </VBanner>
         <main class={styles.containerMain}>
-          <VCard>
-            <PriceSelector prices={prices} v-model={index.value} />
-            <hr class={styles.separator} />
-            <footer>
-              <ul>
-                <li>Unlimited websites</li>
-                <li>100% data ownership</li>
-                <li>Email reports</li>
-              </ul>
-              <button>Start my trial</button>
-            </footer>
-          </VCard>
+          <PriceFormCard prices={prices} />
         </main>
       </>
     )
