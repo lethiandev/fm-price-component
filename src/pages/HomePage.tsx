@@ -27,6 +27,7 @@ export default defineComponent({
         <main class={styles.containerMain}>
           <VCard>
             <PriceSelector prices={prices} v-model={index.value} />
+            <hr class={styles.separator} />
           </VCard>
         </main>
       </>

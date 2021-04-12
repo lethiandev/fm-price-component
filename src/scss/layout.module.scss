@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 .container {
   padding: 0 24px;
 }
@@ -6,4 +8,11 @@
   composes: container;
   margin: 0 auto;
   max-width: 540px;
+}
+
+.separator {
+  margin: 24px -48px;
+  border: none;
+  border-top: 1px solid;
+  border-color: hsl(252, 20%, 95%);
 }
