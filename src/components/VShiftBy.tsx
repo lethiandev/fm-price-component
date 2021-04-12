@@ -17,6 +17,6 @@ export default defineComponent({
       transform: `translate(${props.x}px, ${props.y}px)`,
     }))
 
-    return () => <span style={styling.value}>{slots.default?.()}</span>
+    return () => <div style={styling.value}>{slots.default?.()}</div>
   },
 })
