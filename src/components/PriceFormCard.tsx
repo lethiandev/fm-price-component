@@ -1,7 +1,9 @@
 import { defineComponent, PropType, ref } from 'vue'
 import VCard from './VCard'
 import PriceSelector, { Price } from '@/components/PriceSelector'
-import styles from '@/scss/card.module.scss'
+
+import cardStyles from '@/scss/card.module.scss'
+import buttonStyles from '@/scss/button.module.scss'
 
 export default defineComponent({
   name: 'PriceFormCard',
@@ -20,13 +22,13 @@ export default defineComponent({
         <form id="price-form" action="/" method="post">
           <PriceSelector prices={props.prices} v-model={index.value} />
         </form>
-        <footer class={styles.cardFooter}>
+        <footer class={cardStyles.cardFooter}>
           <ul>
             <li>Unlimited websites</li>
             <li>100% data ownership</li>
             <li>Email reports</li>
           </ul>
-          <button type="submit" form="price-form">
+          <button type="submit" form="price-form" class={buttonStyles.button}>
             Start my trial
           </button>
         </footer>

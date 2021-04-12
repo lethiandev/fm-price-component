@@ -1,0 +1,21 @@
+@use 'variables' as vars;
+
+.button {
+  padding: 15px 46px 14px 46px;
+  background: vars.$color-button;
+  vertical-align: middle;
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: vars.$color-button-text;
+  border: none;
+  border-radius: 1024px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: vars.$color-body;
+  }
+}
