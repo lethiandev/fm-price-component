@@ -1,5 +1,6 @@
 import { defineComponent, PropType, ref, withModifiers } from 'vue'
 import VCard from './VCard'
+import VShiftBy from './VShiftBy'
 import PriceSelector, { Price } from '@/components/PriceSelector'
 
 import cardStyles from '@/scss/card.module.scss'
@@ -38,9 +39,11 @@ export default defineComponent({
             <li>100% data ownership</li>
             <li>Email reports</li>
           </ul>
-          <button type="submit" form="price-form" class={buttonStyles.button}>
-            Start my trial
-          </button>
+          <VShiftBy x={2}>
+            <button type="submit" form="price-form" class={buttonStyles.button}>
+              Start my trial
+            </button>
+          </VShiftBy>
         </footer>
       </VCard>
     )
