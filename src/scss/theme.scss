@@ -28,7 +28,8 @@ ul {
 
 ul li::before {
   content: '';
-  margin-right: 16px;
+  margin-left: 1px;
+  margin-right: 15px;
   background: url('@/assets/icon-check.svg') center top no-repeat;
   vertical-align: middle;
   display: inline-block;
