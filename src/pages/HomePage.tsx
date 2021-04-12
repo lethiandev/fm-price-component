@@ -1,9 +1,8 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import VBanner from '@/components/VBanner'
-import VCard from '@/components/VCard'
-import PriceSelector, { Price } from '@/components/PriceSelector'
-import styles from '@/scss/layout.module.scss'
+import { Price } from '@/components/PriceSelector'
 import PriceFormCard from '@/components/PriceFormCard'
+import styles from '@/scss/layout.module.scss'
 
 export default defineComponent({
   name: 'HomePage',
