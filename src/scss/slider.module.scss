@@ -26,7 +26,12 @@
   height: 40px;
   cursor: grab;
 
+  &:hover {
+    background-color: vars.$color-slider-thumb-hover;
+  }
+
   &--dragging {
+    background-color: vars.$color-slider-thumb-drag !important;
     cursor: grabbing;
   }
 
