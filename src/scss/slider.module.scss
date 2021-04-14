@@ -19,6 +19,7 @@
 .slider-thumb {
   background: url('@/assets/icon-slider.svg') center no-repeat;
   background-color: vars.$color-slider-thumb;
+  box-shadow: 0 16px 24px vars.$color-slider-thumb-shadow;
   border-radius: 1024px;
   user-select: none;
   width: 40px;
