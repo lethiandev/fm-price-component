@@ -4,11 +4,7 @@ import VSwitch from '@/components/VSwitch'
 describe('VSwitch.tsx', () => {
   it('should be unchecked checkbox by default', () => {
     const wrapper = shallowMount(VSwitch)
-    const input = wrapper.find('input')
-
-    expect(input.exists()).toBeTruthy()
-    expect(input.attributes('type')).toEqual('checkbox')
-    expect(input.element.checked).toBeFalsy()
+    expect(wrapper.classes('switch--checked')).toBeFalsy()
   })
 
   it('should be checked when value provided', () => {
@@ -16,44 +12,40 @@ describe('VSwitch.tsx', () => {
       props: { modelValue: true },
     })
 
-    const input = wrapper.find('input')
-    expect(input.element.checked).toBeTruthy()
+    expect(wrapper.classes('switchChecked')).toBeTruthy()
   })
 
   it('should toggle on props change', async () => {
     const wrapper = shallowMount(VSwitch)
 
-    const input = wrapper.find('input')
-
     expect(wrapper.attributes('aria-checked')).toEqual('false')
-    expect(input.element.checked).toBeFalsy()
+    expect(wrapper.classes('switchChecked')).toBeFalsy()
 
     await wrapper.setProps({ modelValue: true })
     expect(wrapper.attributes('aria-checked')).toEqual('true')
-    expect(input.element.checked).toBeTruthy()
+    expect(wrapper.classes('switchChecked')).toBeTruthy()
 
     await wrapper.setProps({ modelValue: false })
     expect(wrapper.attributes('aria-checked')).toEqual('false')
-    expect(input.element.checked).toBeFalsy()
+    expect(wrapper.classes('switchChecked')).toBeFalsy()
 
     await wrapper.setProps({ modelValue: false })
     expect(wrapper.attributes('aria-checked')).toEqual('false')
-    expect(input.element.checked).toBeFalsy()
+    expect(wrapper.classes('switchChecked')).toBeFalsy()
   })
 
-  it('should check checkbox on click', async () => {
+  it('should check and uncheck checkbox on click', async () => {
     const wrapper = shallowMount(VSwitch)
-    const input = wrapper.find('input')
 
     await wrapper.trigger('click')
 
     expect(wrapper.attributes('aria-checked')).toEqual('true')
-    expect(input.element.checked).toBeTruthy()
+    expect(wrapper.classes('switchChecked')).toBeTruthy()
 
     await wrapper.trigger('click')
 
     expect(wrapper.attributes('aria-checked')).toEqual('false')
-    expect(input.element.checked).toBeFalsy()
+    expect(wrapper.classes('switchChecked')).toBeFalsy()
   })
 
   it('should emit value update on click', async () => {
