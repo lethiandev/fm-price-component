@@ -30,6 +30,7 @@ export default defineComponent({
         type="button"
         role="checkbox"
         class={classes.value}
+        aria-label="Discount toggle button"
         aria-checked={checked.value}
         onClick={toggle}
       >
