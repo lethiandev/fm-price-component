@@ -33,9 +33,7 @@ export default defineComponent({
         aria-label="Discount toggle button"
         aria-checked={checked.value}
         onClick={toggle}
-      >
-        <input type="checkbox" checked={checked.value} hidden />
-      </button>
+      ></button>
     )
   },
 })
