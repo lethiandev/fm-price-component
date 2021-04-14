@@ -45,6 +45,8 @@ export default defineComponent({
 
     return () => (
       <div class={priceStyles.priceSelector}>
+        <input type="hidden" name="priceId" value={selected.value.id} />
+        <input type="hidden" name="discount" value={'' + discount.value} />
         <PriceSelectorPageviews pageViews={pageViews.value} />
         <PriceSelectorRate price={price.value} discount={discountRate.value} />
         <PriceSelectorSlider maxIndex={maxIndex.value} v-model={index.value} />
