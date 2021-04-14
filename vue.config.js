@@ -3,7 +3,7 @@ const { defineConfig } = require('@vue/cli-service')
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = defineConfig({
-  publicPath: isProduction ? '/fm-three-column-cards/' : '/',
+  publicPath: isProduction ? '/fm-price-component' : '/',
   chainWebpack: config => {
     // Fix scss modules configuration
     config.module
